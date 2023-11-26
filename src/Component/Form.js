@@ -60,7 +60,7 @@ const Form = ({ formData, setFormData, onSubmit }) => {
 
     <div>
         <div className='ani'>
-        <h1>Book Donaion</h1>
+        <h1>Book Donation</h1>
         </div>
       <form onSubmit={handleSubmit}>
         <div>
