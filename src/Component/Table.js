@@ -59,6 +59,7 @@ const Table = ({ data, onEdit, onDelete, editableRowIndex, onSaveEdit }) => {
             <td>
               {editableRowIndex === index ? (
                 <input
+                id='tableinput'
                   type="text"
                   name="bookTitle"
                   value={editedData.bookTitle}
@@ -71,6 +72,7 @@ const Table = ({ data, onEdit, onDelete, editableRowIndex, onSaveEdit }) => {
             <td>
               {editableRowIndex === index ? (
                 <input
+                id='tableinput'
                   type="text"
                   name="author"
                   value={editedData.author}
@@ -83,6 +85,7 @@ const Table = ({ data, onEdit, onDelete, editableRowIndex, onSaveEdit }) => {
             <td>
               {editableRowIndex === index ? (
                 <input
+                id='tableinput'
                   type="text"
                   name="genre"
                   value={editedData.genre}
@@ -94,7 +97,8 @@ const Table = ({ data, onEdit, onDelete, editableRowIndex, onSaveEdit }) => {
             </td>
             <td>
               {editableRowIndex === index ? (
-                <input
+                <input 
+                id='tableinput'
                   type="text"
                   name="year"
                   value={editedData.year}
@@ -107,6 +111,7 @@ const Table = ({ data, onEdit, onDelete, editableRowIndex, onSaveEdit }) => {
             <td>
               {editableRowIndex === index ? (
                 <input
+                id='tableinput'
                   type="text"
                   name="isbn"
                   value={editedData.isbn}

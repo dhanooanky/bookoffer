@@ -62,7 +62,7 @@ const Form = ({ formData, setFormData, onSubmit }) => {
         <div className='ani'>
         <h1>Book Donation</h1>
         </div>
-      <form onSubmit={handleSubmit}>
+      <form className='aaa' onSubmit={handleSubmit}>
         <div>
         
           <label>Name:</label>
@@ -94,7 +94,7 @@ const Form = ({ formData, setFormData, onSubmit }) => {
           />
           <span style={{ color: 'red' }}>{errors.email}</span>
         </div>
-        <button type="submit">+</button>
+        <button className='plus' type="submit">+</button>
       </form>
     </div>
   );

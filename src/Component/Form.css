@@ -17,17 +17,20 @@ form {
     width: 100%;
   }
   
-  button {
+  .plus { 
     background-color: #4caf50;
     color: white;
-    padding: 10px;
+    padding: 5px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
-  }
+  } 
   
   button:hover {
     background-color: #45a049;
   }
-  
+  .ani{
+    display: flex;
+    justify-content: center;
+  }
