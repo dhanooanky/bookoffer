@@ -1,0 +1,67 @@
+/* styles.css */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Element: Table Header */
+  .table__header {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+  
+  /* Element: Table Row */
+  .table__row {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Modifier: Editable Row */
+  .table__row--editable {
+    background-color: #e6f7ff;
+  }
+  
+  /* Element: Table Cell */
+  .table__cell {
+    padding: 8px;
+  }
+  
+  /* Block: Form */
+  .form {
+    margin: 20px 0;
+  }
+  
+  /* Element: Form Field */
+  .form__field {
+    margin-bottom: 10px;
+  }
+  
+  /* Element: Form Label */
+  .form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Element: Form Input */
+  .form__input {
+    width: 100%;
+    padding: 8px;
+  }
+  
+  /* Element: Form Error */
+  .form__error {
+    color: red;
+  }
+  
+  @media only screen and (max-width: 600px) {
+
+    .table__cell {
+      font-size: 14px;
+    }
+  
+    .form__input {
+      font-size: 14px;
+    }
+  }
+  

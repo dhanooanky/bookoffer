@@ -1,21 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  // Update the import statement
-import Main from './Component/Main';
-// import Signup from './Component/Signup';
+import Main from './client/Main';
+
 
 const App = () => {
   return (
     <div>
       <Main/>
     </div>
-    // <Router>
-    //   <div>
-    //     <Routes>  {/* Replace Switch with Routes */}
-    //       <Route path="/signup" element={<Signup />} />
-    //       <Route path="/" element={<Main />} />
-    //     </Routes>
-    //   </div>
-    // </Router>
+    
   );
 };
 
