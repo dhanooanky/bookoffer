@@ -1,9 +1,9 @@
-// App.js
-import './style.css';
 import React, { useState } from 'react';
 import Form from './Form';
 import Table from './Table'
- 
+
+
+
 
 const Main = () => {
   const [formData, setFormData] = useState({

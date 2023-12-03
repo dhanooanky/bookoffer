@@ -1,27 +1,28 @@
 // Table.js
 
 import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import './Table.css';;
 
 const Table = ({ data, onEdit, onDelete, editableRowIndex, onSaveEdit }) => {
   const [editedData, setEditedData] = useState({
-    bookTitle: '',
+    book: '',
     author: '',
     genre: '',
-    year: '',
+    yop: '',
     isbn: '',
   });
 
   useEffect(() => {
     if (editableRowIndex !== null) {
-      const { bookTitle, author, genre, year, isbn } = data[editableRowIndex];
-      setEditedData({ bookTitle, author, genre, year, isbn });
+      const { book, author, genre, yop, isbn } = data[editableRowIndex];
+      setEditedData({ book, author, genre, yop, isbn });
     } else {
       setEditedData({
-        bookTitle: '',
+        book: '',
         author: '',
         genre: '',
-        year: '',
+        yop: '',
         isbn: '',
       });
     }
@@ -35,10 +36,25 @@ const Table = ({ data, onEdit, onDelete, editableRowIndex, onSaveEdit }) => {
     }));
   };
 
-  const handleSaveClick = (index) => {
-    onSaveEdit(index, editedData);
+  const handleSaveClick = async (index) => {
+    try {
+      // Make a POST request using Axios
+      const response = await axios.post('http://localhost:5000/api/Book/', editedData);
+  
+      // Check for a successful response (status code 2xx)
+      if (response.status >= 200 && response.status < 300) {
+        console.log('Data submitted successfully:', response.data);
+      } else {
+        // Log the full response for debugging purposes
+        console.error('Unexpected status code:', response.status, response.data);
+      }
+    } catch (error) {
+      // Log the full error object for debugging purposes
+      console.error('Error:', error.message, error.response?.data);
+    }
   };
-
+  
+  
   return (
     <table className="table">
       <thead>

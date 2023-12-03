@@ -1,12 +1,14 @@
 
 
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Form.css';;
+
 
 const Form = ({ formData, setFormData, onSubmit }) => {
   const [errors, setErrors] = useState({
     name: '',
-    phoneNumber: '',
+    phone: '',
     email: '',
   });
 
@@ -17,7 +19,7 @@ const Form = ({ formData, setFormData, onSubmit }) => {
 
   const validateForm = () => {
     let valid = true;
-    const newErrors = { name: '', phoneNumber: '', email: '' };
+    const newErrors = { name: '', phone: '', email: '' };
 
     // Name validation
     if (!formData.name.trim()) {
@@ -27,11 +29,11 @@ const Form = ({ formData, setFormData, onSubmit }) => {
 
     // Phone number validation
     const phoneRegex = /^\d{10}$/;
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone number is required';
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
       valid = false;
-    } else if (!phoneRegex.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Invalid phone number. Please enter a 10-digit number.';
+    } else if (!phoneRegex.test(formData.phone)) {
+      newErrors.phone = 'Invalid phone number. Please enter a 10-digit number.';
       valid = false;
     }
 
@@ -49,12 +51,29 @@ const Form = ({ formData, setFormData, onSubmit }) => {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      onSubmit();
+      try {
+        // Make a POST request using Axios
+        const response = await axios.post('http://localhost:5000/api/User/', formData);
+        
+        // Check for a successful response (status code 2xx)
+        if (response.status >= 200 && response.status < 300) {
+          console.log('Data submitted successfully:', response.data);
+          // Call the onSubmit function if needed
+          onSubmit();
+        } else {
+          // Handle unexpected status codes
+          console.error('Unexpected status code:', response.status);
+        }
+      } catch (error) {
+        // Handle network errors or other exceptions
+        console.error('Error:', error.message);
+      }
     }
   };
+
 
   return (
 
